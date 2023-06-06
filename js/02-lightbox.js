@@ -1,21 +1,34 @@
+import simpleLightbox from 'simplelightbox';
 import { galleryItems } from './gallery-items.js';
 
-import * as SimpleLightbox from 'simplelightbox/dist/simple-lightbox.min.js';
-
-const Lightbox = new SimpleLightbox.default('.gallery__item');
-
+const lightbox = new simpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionsDelay: 250,
+  disableScroll: false,
+})
 
 const gallery = document.querySelector('.gallery');
 const photos = galleryItems.map((photo) => {
+
+  const li = document.createElement("li");
+  li.classList.add("gallery__item");
+
+  const a = document.createElement("a");
+  a.href = photo.original;
+  a.dataLightbox = "lbox";
+  a.classList.add("gallery__link");
+
   const image = document.createElement('img');
   image.src = photo.preview;
   image.alt = photo.description;
-  image.setAttribute('data-source', photo.original);
+  image.dataset.source = photo.original;
   image.classList.add('gallery__item');
+  image.classList.add("gallery__image")
 
-  return image;
+  a.append(image);
+  li.append(a);
+
+  return li;
 });
 
 gallery.append(...photos);
-
-const lightbox = new Lightbox('.gallery__item');
