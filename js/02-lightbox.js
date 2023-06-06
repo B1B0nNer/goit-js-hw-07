@@ -1,5 +1,10 @@
 import { galleryItems } from './gallery-items.js';
 
+import * as SimpleLightbox from 'simplelightbox/dist/simple-lightbox.min.js';
+
+const Lightbox = new SimpleLightbox.default('.gallery__item');
+
+
 const gallery = document.querySelector('.gallery');
 const photos = galleryItems.map((photo) => {
   const image = document.createElement('img');
