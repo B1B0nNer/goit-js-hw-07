@@ -27,10 +27,7 @@ const photos = galleryItems.map((photo) => {
 gallery.append(...photos);
 
 const lightbox = new SimpleLightbox('.gallery a', {
-  // Default options
-  sourceAttr: 'href',
-  captionSelector: 'img',              // Select the <img> tag inside the lightbox
-  captionType: 'alt',                 // Use the 'alt' attribute for captions
-  captionPosition: 'bottom',
-  // Other options...
+  captions: true,
+  captionData: 'alt',
+  captionDelay: 250,
 });
