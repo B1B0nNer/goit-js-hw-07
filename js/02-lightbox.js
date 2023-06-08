@@ -1,11 +1,4 @@
-import simpleLightbox from 'simplelightbox';
 import { galleryItems } from './gallery-items.js';
-
-const lightbox = new simpleLightbox(".gallery a", {
-  captionsData: "alt",
-  captionsDelay: 250,
-  disableScroll: false,
-})
 
 const gallery = document.querySelector('.gallery');
 const photos = galleryItems.map((photo) => {
@@ -32,3 +25,12 @@ const photos = galleryItems.map((photo) => {
 });
 
 gallery.append(...photos);
+
+const lightbox = new SimpleLightbox('.gallery a', {
+  // Default options
+  sourceAttr: 'href',
+  captionSelector: 'img',              // Select the <img> tag inside the lightbox
+  captionType: 'alt',                 // Use the 'alt' attribute for captions
+  captionPosition: 'bottom',
+  // Other options...
+});
