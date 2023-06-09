@@ -23,6 +23,7 @@
 
 .gallery__image {
   height: 100%;
+  max-width: 510px;
   object-fit: cover;
   transition: transform var(--animation-duration) var(--timing-function);
 }
