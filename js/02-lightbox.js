@@ -5,7 +5,7 @@ const photos = galleryItems.map(({preview, original, description}) => {
 
   const lishka = 
   `<li class="gallery__item">
-      <a class="galley__link" href="${original}">
+      <a class="gallery__link" href="${original}" onclick="return false;">
         <img class="gallery__image" src="${preview}" data-source="${original}" alt="${description}" />
       </a>
     </li>`
