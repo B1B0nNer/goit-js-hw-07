@@ -24,6 +24,8 @@ const lightbox = basicLightbox.create(`
 function handlePhotoClick(event) {
   const clickedPhoto = event.target;
 
-  lightbox.element().querySelector('.modal__image').src = clickedPhoto.dataset.source;
-  lightbox.show();
+  if (clickedPhoto.tagName == 'IMG'){
+    lightbox.element().querySelector('.modal__image').src = clickedPhoto.dataset.source;
+    lightbox.show();
+  }
 }
